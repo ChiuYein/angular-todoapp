@@ -1,0 +1,36 @@
+<section class="subtodo">    
+    <!-- Add Subtask -->
+    <div>
+        <ul>
+            <li>
+                <input class="new-subtodo" 
+                placeholder="Enter Sub To-Do"
+                [(ngModel)]="newSubtodo"
+                (keyup.enter)="addSubtodo()">     
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <!-- Edit, Update & Delete Subtask -->
+            <li *ngFor="let subtodo of subtodos" [ngClass]="{completed: subtodo.isDone, editing: subtodo.editing}" >
+                <div class="view">
+                    <input class="toggle"
+                        type="checkbox" 
+                        [checked]="subtodo.isDone"
+                        (click)="toggleSubTodo(subtodo)">           
+                    <label (dblclick)="subtodo.editing = true">{{ subtodo.title }} </label>
+                    <button class="destroy" (click)="destroySubtodo(subtodo)"></button>
+                </div>
+                <input type="text" 
+                    class="edit"
+                    #updatedSubtodo
+                    [value]="subtodo.title"
+                    (blur)="updateSubtodo(subtodo, updatedSubtodo.value)"
+                    (keyup.escape)="subtodo.editing = false"
+                    (keyup.enter)="updatedSubtodo(subtodo,updatedSubtodo.value)" >
+            </li>
+        </ul>
+    </div>
+</section> 
+

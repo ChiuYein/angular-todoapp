@@ -1,0 +1,60 @@
+<section class="todoapp">
+
+    <header class="header">
+      <h1>To-Do List</h1>
+      <input class="new-todo" 
+        placeholder="What needs to be done?"
+        [(ngModel)] = "newTodo" 
+        (keyup.enter) = "addToDo()"
+        autofocus>
+    </header>
+  
+    <section class="main">
+      <ul class="todo-list">
+        <li *ngFor="let todo of todos" [ngClass]="{completed: todo.isDone, editing: todo.editing}">
+          <div class="view">
+            <input class="toggle" 
+              type="checkbox" 
+              [checked]="todo.isDone"
+              (click)="toggleTodo(todo)">
+            <label (dblclick)="todo.editing = true">{{ todo.title }}</label>
+            <button class="destroy" (click)="destroyTodo(todo)"></button>
+            <app-subtodo></app-subtodo>
+          </div>
+          
+          
+          <input class="edit" 
+          #updatedTodo 
+          [value]="todo.title"
+          (blur)="updateTodo(todo, updatedTodo.value)"
+          (keyup.escape)="todo.editing = false"
+          (keyup.enter)="updateTodo(todo, updatedTodo.value)">
+        </li> 
+        
+      </ul>
+    </section>
+
+    
+    <!-- This footer should hidden by default and shown when there are todos -->
+    <footer class="footer">
+
+      <!-- Display how many to do item that is active -->
+      <span class="todo-count"><strong>{{ activeTasks }}</strong> item left</span>
+      
+      <!-- Sort the task based on category -->
+      <ul class="filters">
+        <li>
+          <a [routerLink]="['/all']" [class.selected]= "path === 'all'"> All </a>
+        </li>
+        <li>
+          <a [routerLink]="['/active']" [class.selected]= "path === 'active'"> Active </a>
+        </li>
+        <li>
+          <a [routerLink]="['/completed']" [class.selected]= "path === 'completed'"> Completed </a>
+        </li>
+      </ul>
+      
+      <!-- Clear completed to do -->
+      <button class="clear-completed" (click)= "clearCompleted()">Clear completed</button>
+    </footer>
+  </section>
