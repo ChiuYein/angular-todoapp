@@ -10,7 +10,7 @@ Clone the repo
 
 Install Dependencies
 
-```Install dependencies```
+```npm install```
 
 ## Functionality Overview
 
