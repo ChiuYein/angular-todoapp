@@ -26,9 +26,39 @@ Run the application
 #### Sub todo list 
 * User able to insert, update, delete and view all the sub todo of main todo 
 
+## Directory Structure
+```
+├── src
+│   ├── app
+│   │   ├── app.component.html
+│   │   ├── app.component.scss
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   │   ├── app-routing.module.ts
+│   │   ├── components
+│   │   │   ├── subtodo
+│   │   │   │   ├── subtodo.component.html
+│   │   │   │   ├── subtodo.component.scss
+│   │   │   │   ├── subtodo.component.spec.ts
+│   │   │   │   └── subtodo.component.ts
+│   │   │   └── todo
+│   │   │       ├── todo.component.html
+│   │   │       ├── todo.component.scss
+│   │   │       ├── todo.component.spec.ts
+│   │   │       └── todo.component.ts
+│   │   └── services
+│   │       ├── subtodo
+│   │       │   ├── subtodo.service.spec.ts
+│   │       │   ├── subtodo.service.ts
+│   │       │   ├── subtodo-storage.service.spec.ts
+│   │       │   └── subtodo-storage.service.ts
+│   │       └── todo
+│   │           ├── storage.service.spec.ts
+│   │           ├── storage.service.ts
+│   │           ├── todo.service.spec.ts
+│   │           └── todo.service.ts
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:9000/`. The app will automatically reload if you change any of the source files.
+```
 
 
