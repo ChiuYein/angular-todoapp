@@ -17,11 +17,12 @@ export class TodoService {
     this.todoList = storageService.getData(todoListStorageKey) || TODOS;
   }
 
+  //give storage service a function that can passed into different CRUD functionality
   saveList() {
     this.storageService.setData(todoListStorageKey, TODOS);
   }
 
-  // retrieve all the element in the todo list and resolved the promise
+  // retrieve all the element in the todo list
   get(query= '') {
 
     return new Promise(resolve => {
@@ -34,11 +35,10 @@ export class TodoService {
         data = TODOS;
       }      
       resolve(data)
-      // this.saveList();
     });
   }
 
-  //adds the new elements into the todos array and resolved the promise
+  //adds the new elements into the todos array
   add(data){
     return new Promise(resolve => {
       TODOS.push(data);
@@ -47,7 +47,7 @@ export class TodoService {
     });
   }
 
-  //Edit & update the to do element and resolved the promise
+  //Edit & update the todo element
   put(changed) {
     return new Promise(resolve => {
       const index = TODOS.findIndex(todo => todo = changed);
@@ -57,7 +57,7 @@ export class TodoService {
     })
   }
 
-  //Delete the to do element and resolve the promise
+  //Delete the todo element
   delete(selected) {
     return new Promise(resolve => {
       const index = TODOS.findIndex(todo => todo = selected);
@@ -67,7 +67,7 @@ export class TodoService {
     });
   }
 
-  //Clear Completed To do element
+  //Clear Completed todo element
   deleteCompleted() {
     return new Promise(resolve => {
       TODOS = TODOS.filter(todo => !todo.isDone);
@@ -76,7 +76,7 @@ export class TodoService {
     });
   }
 
-  //Toggle Element when click on to do
+  //Toggle Element when click on todo
   toggle(selected) {
     selected.isDone = !selected.isDone;
     return Promise.resolve();

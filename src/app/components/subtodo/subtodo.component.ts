@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SubtodoService } from '../../services/subtodo.service'
+import { SubtodoService } from '../../services/subtodo/subtodo.service'
 
 @Component({
   selector: 'app-subtodo',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { TodoService } from '../../services/todo.service';
-import { SubtodoService } from '../../services/subtodo.service'
+import { TodoService } from '../../services/todo/todo.service';
+import { SubtodoService } from '../../services/subtodo/subtodo.service'
 
 
 @Component({
@@ -33,7 +33,7 @@ export class TodoComponent implements OnInit {
     this.todoService.add({title: this.newTodo, isDone: false}).then(() =>{
       return this.getToDos();
     }).then(() => {
-      this.newTodo = ""; //clear input form value
+      this.newTodo = ""; 
     });
   }
 
