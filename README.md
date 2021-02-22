@@ -4,20 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 It is a To-do list application with CRUD (Create, Read, Update, Delete) functionality.
 
-# Setup
-Clone the repo
-
-```https://github.com/ChiuYein/angular-todoapp```
-
-Install Dependencies
-
-```npm install```
-
-Run the application
-
-```ng serve```
-
-## Functionality Overview
+# Functionality Overview
 
 #### Main todo list
 * User able to insert, update, delete and view all todo item
@@ -52,4 +39,15 @@ Run the application
 │   │           ├── todo.service.spec.ts
 │   │           └── todo.service.ts
 ```
+# Setup
+Clone the repo
 
+```https://github.com/ChiuYein/angular-todoapp```
+
+Install Dependencies
+
+```npm install```
+
+Run the application
+
+```ng serve```
